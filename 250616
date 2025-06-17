@@ -1,0 +1,615 @@
+// 핵심프로젝트 Front
+
+---------------------------------------------------------------------------------------
+// 시작화면
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>한잔하주(酒) 시작화면</title>
+    <style>
+      :root {
+        --bg-color: #1d1c2b;
+        --yellow: #ffd43b;
+        --gray: #3a3946;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background-color: var(--bg-color);
+        color: white;
+        font-family: "Pretendard", "Noto Sans KR", sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        padding: 20px;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 400px;
+        text-align: center;
+        position: relative;
+      }
+
+      .logo-img {
+        width: 200px;
+        height: 200px;
+      }
+
+      .title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .subtitle {
+        font-size: 1rem;
+        color: #ccc;
+        margin-bottom: 40px;
+      }
+
+      .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+
+      .btn {
+        flex: 1;
+        padding: 12px 0;
+        border: none;
+        border-radius: 25px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: transform 0.2s;
+      }
+
+      .btn:hover {
+        transform: scale(0.98);
+      }
+
+      .btn-guest {
+        background-color: var(--gray);
+        color: white;
+      }
+
+      .btn-member {
+        background-color: var(--yellow);
+        color: black;
+        font-weight: bold;
+      }
+
+      .signup {
+        font-size: 0.9rem;
+        color: #aaa;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+
+      @media (max-width: 480px) {
+        .title {
+          font-size: 1.6rem;
+        }
+        .btn {
+          font-size: 0.95rem;
+          padding: 10px 0;
+        }
+      }
+
+      @media (min-width: 481px) and (max-width: 1024px) {
+        .container {
+          max-width: 500px;
+        }
+        .title {
+          font-size: 2.2rem;
+        }
+      }
+
+      @media (min-width: 1025px) {
+        .container {
+          max-width: 600px;
+        }
+        .title {
+          font-size: 2.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img
+        src="./images/한잔하주_logochar(흰색).png"
+        alt="와인 아이콘"
+        class="logo-img"
+      />
+      <div class="title">한잔하주(酒)</div>
+      <div class="subtitle">감정을 마시다, 분위기를 느끼다</div>
+
+      <div class="buttons">
+        <button class="btn btn-guest" onclick="guestLogin()">게스트</button>
+        <button class="btn btn-member" onclick="goToLogin()">회원</button>
+      </div>
+
+      <div class="signup" onclick="goToSignUp()">회원가입</div>
+    </div>
+
+    <script>
+      function goToLogin() {
+        window.location.href = "login.html";
+      }
+
+      function guestLogin() {
+        alert("게스트 로그인 완료 (예시)");
+      }
+
+      function goToSignUp() {
+        window.location.href = "signup3.html";
+      }
+    </script>
+  </body>
+</html>
+
+
+---------------------------------------------------------------------------------------
+// 로그인 화면
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>한잔하주(酒) 시작화면</title>
+    <style>
+      :root {
+        --bg-color: #1d1c2b;
+        --yellow: #ffd43b;
+        --gray: #3a3946;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background-color: var(--bg-color);
+        color: white;
+        font-family: "Pretendard", "Noto Sans KR", sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        padding: 20px;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 400px;
+        text-align: center;
+        position: relative;
+      }
+
+      .logo-img {
+        width: 200px;
+        height: 200px;
+      }
+
+      .title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .subtitle {
+        font-size: 1rem;
+        color: #ccc;
+        margin-bottom: 40px;
+      }
+
+      .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+
+      .btn {
+        flex: 1;
+        padding: 12px 0;
+        border: none;
+        border-radius: 25px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: transform 0.2s;
+      }
+
+      .btn:hover {
+        transform: scale(0.98);
+      }
+
+      .btn-guest {
+        background-color: var(--gray);
+        color: white;
+      }
+
+      .btn-member {
+        background-color: var(--yellow);
+        color: black;
+        font-weight: bold;
+      }
+
+      .signup {
+        font-size: 0.9rem;
+        color: #aaa;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+
+      @media (max-width: 480px) {
+        .title {
+          font-size: 1.6rem;
+        }
+        .btn {
+          font-size: 0.95rem;
+          padding: 10px 0;
+        }
+      }
+
+      @media (min-width: 481px) and (max-width: 1024px) {
+        .container {
+          max-width: 500px;
+        }
+        .title {
+          font-size: 2.2rem;
+        }
+      }
+
+      @media (min-width: 1025px) {
+        .container {
+          max-width: 600px;
+        }
+        .title {
+          font-size: 2.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img
+        src="./images/한잔하주_logochar(흰색).png"
+        alt="와인 아이콘"
+        class="logo-img"
+      />
+      <div class="title">한잔하주(酒)</div>
+      <div class="subtitle">감정을 마시다, 분위기를 느끼다</div>
+
+      <div class="buttons">
+        <button class="btn btn-guest" onclick="guestLogin()">게스트</button>
+        <button class="btn btn-member" onclick="goToLogin()">회원</button>
+      </div>
+
+      <div class="signup" onclick="goToSignUp()">회원가입</div>
+    </div>
+
+    <script>
+      function goToLogin() {
+        window.location.href = "login.html";
+      }
+
+      function guestLogin() {
+        alert("게스트 로그인 완료 (예시)");
+      }
+
+      function goToSignUp() {
+        window.location.href = "signup3.html";
+      }
+    </script>
+  </body>
+</html>
+
+---------------------------------------------------------------------------------------
+// 회원가입 화면
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원가입 - 한잔하주(酒)</title>
+    <style>
+      :root {
+        --bg-color: #1d1c2b;
+        --input-bg: #3a3946;
+        --placeholder: #aaa;
+        --button-color: #ff914d;
+        --button-hover: #ff7a26;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background-color: var(--bg-color);
+        font-family: "Pretendard", "Noto Sans KR", sans-serif;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        padding: 20px;
+      }
+
+      .signup-container {
+        width: 100%;
+        max-width: 360px;
+        text-align: center;
+      }
+
+      .logo-img {
+        width: 200px;
+        height: 200px;
+      }
+
+      .title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .subtitle {
+        font-size: 1rem;
+        color: #ccc;
+        margin-bottom: 30px;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      input[type="email"],
+      input[type="password"],
+      input[type="date"] {
+        padding: 14px;
+        border-radius: 16px;
+        border: none;
+        font-size: 1rem;
+        background-color: var(--input-bg);
+        color: white;
+      }
+
+      input::placeholder {
+        color: var(--placeholder);
+      }
+
+      button {
+        margin-top: 10px;
+        background-color: var(--button-color);
+        color: white;
+        padding: 14px;
+        font-size: 1rem;
+        font-weight: bold;
+        border: none;
+        border-radius: 16px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+
+      button:hover {
+        background-color: var(--button-hover);
+      }
+
+      .back {
+        margin-top: 15px;
+        font-size: 0.85rem;
+        color: #bbb;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="signup-container">
+      <img
+        src="./images/한잔하주_logochar(흰색).png"
+        alt="와인 아이콘"
+        class="logo-img"
+      />
+      <div class="title">한잔하주(酒)</div>
+      <div class="subtitle">감정을 마시다, 분위기를 느끼다</div>
+
+      <form onsubmit="handleSubmit(event)">
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Email *"
+          required
+        />
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Password *"
+          required
+        />
+        <input
+          type="password"
+          id="repeat-password"
+          name="repeat-password"
+          placeholder="Repeat Password *"
+          required
+        />
+        <input
+          type="date"
+          id="birth"
+          name="birth"
+          placeholder="생년월일 *"
+          required
+        />
+        <button type="submit">가입하기</button>
+      </form>
+
+      <div class="back" onclick="goBack()">시작화면으로 돌아가기</div>
+    </div>
+
+    <script>
+      function handleSubmit(event) {
+        event.preventDefault();
+        const password = document.getElementById("password").value;
+        const repeatPassword = document.getElementById("repeat-password").value;
+
+        if (password !== repeatPassword) {
+          alert("비밀번호가 일치하지 않습니다.");
+          return;
+        }
+
+        alert("회원가입이 완료되었습니다!");
+        window.location.href = "start.html";
+      }
+
+      function goBack() {
+        window.location.href = "start.html";
+      }
+    </script>
+  </body>
+</html>
+
+
+---------------------------------------------------------------------------------------
+// 아이디,비밀번호 찾기 화면
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>아이디/비밀번호 찾기 - 한잔하주(酒)</title>
+    <style>
+      :root {
+        --bg-color: #1d1c2b;
+        --input-bg: #3a3946;
+        --text-muted: #aaa;
+        --btn-color: #ff914d;
+        --btn-hover: #ff7a26;
+      }
+
+      body {
+        margin: 0;
+        background-color: var(--bg-color);
+        font-family: "Pretendard", "Noto Sans KR", sans-serif;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        padding: 20px;
+      }
+
+      .find-container {
+        width: 100%;
+        max-width: 400px;
+        background-color: #2a293b;
+        padding: 30px;
+        border-radius: 10px;
+        text-align: center;
+      }
+
+      h2 {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        text-align: left;
+        margin: 10px 0 5px;
+      }
+
+      input {
+        width: 100%;
+        padding: 12px;
+        border-radius: 8px;
+        border: none;
+        background-color: var(--input-bg);
+        color: white;
+        font-size: 1rem;
+      }
+
+      input::placeholder {
+        color: var(--text-muted);
+      }
+
+      button {
+        width: 100%;
+        margin-top: 20px;
+        padding: 12px;
+        font-size: 1rem;
+        font-weight: bold;
+        color: white;
+        background-color: var(--btn-color);
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+
+      button:hover {
+        background-color: var(--btn-hover);
+      }
+
+      .back {
+        margin-top: 15px;
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="find-container">
+      <h2>아이디 / 비밀번호 찾기</h2>
+
+      <form onsubmit="handleFind(event)">
+        <label for="email">가입한 이메일</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="example@email.com"
+          required
+        />
+
+        <button type="submit">정보 찾기</button>
+      </form>
+
+      <div class="back" onclick="goBack()">시작화면으로 돌아가기</div>
+    </div>
+
+    <script>
+      function handleFind(event) {
+        event.preventDefault();
+        const email = document.getElementById("email").value;
+
+        alert(
+          `입력하신 이메일로 아이디/비밀번호 안내를 보냈습니다.\n(${email})`
+        );
+        // 실제 서비스에서는 이메일 전송 또는 백엔드 처리 필요
+      }
+
+      function goBack() {
+        window.location.href = "start.html";
+      }
+    </script>
+  </body>
+</html>
+
